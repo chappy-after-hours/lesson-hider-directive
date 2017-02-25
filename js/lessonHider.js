@@ -5,7 +5,8 @@ angular.module('directivePractice')
       templateUrl: '../templates/lessonHider.html',
       scope: {
         lesson: '=',
-        dayAlert: '&'
+        dayAlert: '&',
+        lessons: '='
       },
       controller: function($scope, lessonService) {
         $scope.getSchedule = lessonService.getSchedule();
@@ -28,7 +29,22 @@ angular.module('directivePractice')
               }
             })
           });
-        // scope.
+        scope.checkedOff = function() {
+          if (scope.checked) {
+            scope.checked = false;
+            elem.css('text-decoration','none');
+          } else {
+            scope.checked = true;
+            elem.css('text-decoration','line-through')
+          }
+        }
+        scope.removeLesson = function() {
+          if (scope.lessons.includes(scope.lesson)) {
+            var idx = scope.lessons.indexOf(scope.lesson);
+            scope.lessons.splice(idx,1);
+            console.log(scope.lessons)
+          }
+        }
       }
     }
   })

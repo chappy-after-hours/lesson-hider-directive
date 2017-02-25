@@ -9,7 +9,7 @@ Testing:</br>
 <!-- <input ng-model='test' placeholder="type here"> -->
 {{test}} - </br>
 <ul>
-  <lesson-hider lesson="lesson" day-alert="announceDay(lesson, day)" ng-repeat="lesson in lessons"></lesson-hider>
+  <lesson-hider lesson="lesson" lessons='lessons' day-alert="announceDay(lesson, day)" ng-repeat="lesson in lessons"></lesson-hider>
 </ul>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
